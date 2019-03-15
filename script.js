@@ -3,6 +3,9 @@ var solution = [1, 2, 3, 4, 5, 6, 7, 8];
 //trackers
 var solved = 0;
 var moves = 0;
+var scores = new Array();
+var highscore = 0;
+var average = 0;
 
 function getCells(){
     var cell1 = document.getElementById("1");
@@ -19,7 +22,7 @@ function getCells(){
 function reset(){
     //reset moves
     moves = 0;
-    document.getElementsByTagName("p")[0].innerHTML = "Moves: 0";
+    document.getElementById("moves").innerHTML = "Moves: 0";
 
     //get each table cell
     getCells();
@@ -75,8 +78,14 @@ function checkGame(){
         }
     }
 
-    //display win message
-    if (solved && moves)   alert("You did it! Moves: " + moves);  
+    //display win message and update scores
+    if (solved && moves) {
+        alert("You did it! Moves: " + moves);
+        scores.push(moves);
+        updateHighscore();
+        updateAverage();
+    }   
+      
 }
 
 function move(cell){
@@ -248,5 +257,21 @@ function move(cell){
 
 function updateMoves(){
     moves ++;
-    document.getElementsByTagName("p")[0].innerHTML = "Moves: " + moves;
+    document.getElementById("moves").innerHTML = "Moves: " + moves;
+}
+
+function updateHighscore(){
+    if (!highscore){
+        highscore = moves;
+    }
+    else if(moves < highscore){
+        highscore = moves;
+    }
+    document.getElementById("highscore").innerHTML = "Highscore: " + highscore;
+}
+
+function updateAverage(){
+    let sum = scores.reduce((previous, current) => current += previous);
+    average = sum / scores.length;
+    document.getElementById("average").innerHTML = "Average Score: " + average;
 }
