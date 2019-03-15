@@ -1,0 +1,42 @@
+td { 
+    width : 20px;
+    height: 20px;
+    text-align: center;
+    font-size: large;
+    color: green;
+    border: 1px solid black;
+    cursor: pointer;
+    }
+  
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    position:fixed;
+    margin-left: -3%;
+    margin-top: -3%;
+    top:50%;
+    left:50%;
+}
+#reset {
+    position: fixed;
+    margin-left: -3%;
+    margin-top: 3%;
+    top:50%;
+    left:50%;
+    cursor: pointer;
+}
+#solve{
+    position: fixed;
+    margin-left: 1%;
+    margin-top: 3%;
+    top:50%;
+    left:50%;
+    cursor: pointer;
+}
+#moves{
+    position:fixed;
+    margin-left: -3%;
+    margin-top: -5%;
+    top:50%;
+    left:50%;
+}
